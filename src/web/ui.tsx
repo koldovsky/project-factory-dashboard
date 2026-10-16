@@ -18,6 +18,7 @@ export function StatusPill({ status, label }: { status: GateStatus; label?: stri
 
 const OUTCOME: Record<Outcome, { status: GateStatus | 'running'; label: string }> = {
   accepted: { status: 'pass', label: 'accepted' },
+  unverified: { status: 'fail', label: 'passed · unverified' },
   rejected: { status: 'fail', label: 'rejected' },
   running: { status: 'running', label: 'running' },
   interrupted: { status: 'blocked', label: 'interrupted' },

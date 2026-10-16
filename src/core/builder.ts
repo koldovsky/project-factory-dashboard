@@ -58,8 +58,9 @@ const summarize = (value: unknown, max = 160) => {
 /** claude --print --output-format json: one result object. */
 function fromClaudeResult(result: Record<string, unknown>, prices: PriceTable, fallbackModel: string | null): Partial<BuilderAnalysis> {
   const modelUsage = result.modelUsage as Record<string, Record<string, unknown>> | undefined;
-  const models = modelUsage ? Object.keys(modelUsage) : [];
-  const model = models[0] ?? fallbackModel;
+  // modelUsage can include small helper models: label the run with the model that cost the most.
+  const ranked = Object.entries(modelUsage ?? {}).sort(([, a], [, b]) => num(b.costUSD) - num(a.costUSD) || num(b.outputTokens) - num(a.outputTokens));
+  const model = ranked[0]?.[0] ?? fallbackModel;
   const tokens = claudeUsage(result.usage as Record<string, unknown> | undefined);
   let cost: Cost;
   if (typeof result.total_cost_usd === 'number') {

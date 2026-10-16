@@ -40,6 +40,11 @@ describe('builder.json stdout', () => {
     expect(a.turns).toBe(12);
   });
 
+  it('labels a claude-json run with the model that cost the most, not the first modelUsage key', () => {
+    const stdout = JSON.stringify({ type: 'result', total_cost_usd: 1.2, num_turns: 3, usage: {}, modelUsage: { 'claude-haiku-5-5': { costUSD: 0.01, outputTokens: 50 }, 'claude-opus-5-5': { costUSD: 1.19, outputTokens: 9000 } } });
+    expect(analyzeBuilder({ status: 'completed', stdout }, prices).model).toBe('claude-opus-5-5');
+  });
+
   it('counts usage once per message id in stream-json and lists every tool call', () => {
     const stdout = claudeStreamStdout({ model: 'claude-sonnet-5-5', tools: [{ name: 'Read', input: { file_path: 'a.ts' } }, { name: 'Edit', input: { file_path: 'a.ts' } }] });
     const a = analyzeBuilder({ status: 'completed', stdout }, prices);

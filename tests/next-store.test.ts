@@ -61,6 +61,21 @@ describe('integrity', () => {
     expect(summary.integrity.issues.join(' ')).toMatch(/digest mismatch/);
   });
 
+  it('never counts a tampered passed run as accepted, nor uses it for the trace chain', () => {
+    const store = tmp();
+    const good = writeNextRun(store, { id: 'good', taskId: 't', agent: 'manual', attempts: [{ checks: [{ id: 'unit', status: 'failed', cases: [{ id: 'u', status: 'failed' }] }] }], final: 'failed', start });
+    const bad = writeNextRun(store, { id: 'bad', taskId: 't', agent: 'manual', attempts: [{ checks: [pass('unit')] }], final: 'passed', start: new Date(start.getTime() + 3_600_000) });
+    const file = path.join(bad, 'run.json');
+    const run = JSON.parse(fs.readFileSync(file, 'utf8'));
+    run.history[0].at = '2026-01-01T00:00:00.000Z';
+    fs.writeFileSync(file, JSON.stringify(run));
+    const runs = [readNextRun(good, opts), readNextRun(bad, opts)];
+    expect(runs[1].outcome).toBe('unverified');
+    const trace = traceForTask({ id: 't', title: 't', requirements: [{ id: 'R1', description: 'd', checkIds: ['unit'] }], checks: [{ id: 'unit', kind: 'command', dependsOn: [], expectedCases: ['u'] }] }, runs, 'test');
+    expect(trace.title).toContain('run good');
+    expect(trace.requirements[0].status).toBe('fail');
+  });
+
   it('flags an evidence report changed after verification', () => {
     const store = tmp();
     const dir = writeNextRun(store, { id: 'r2', taskId: 't', agent: 'manual', attempts: [{ checks: [pass('unit')] }], final: 'passed', start });

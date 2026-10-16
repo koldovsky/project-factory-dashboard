@@ -53,7 +53,7 @@ export interface TimelineEvent {
   attempt?: number;
 }
 
-export type Outcome = 'accepted' | 'rejected' | 'running' | 'interrupted' | 'stale-lock' | 'completed' | 'failed' | 'unknown';
+export type Outcome = 'accepted' | 'unverified' | 'rejected' | 'running' | 'interrupted' | 'stale-lock' | 'completed' | 'failed' | 'unknown';
 
 export interface RunSummary {
   key: string;

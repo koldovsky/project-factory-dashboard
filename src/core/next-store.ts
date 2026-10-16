@@ -229,7 +229,8 @@ export function readNextRun(dir: string, options: NextStoreOptions): RunSummary 
   const terminal = history.findLast(h => TERMINAL.has(h.state) || h.state === 'interrupted');
   const startedAt = history[0]?.at ?? null;
   const endedAt = TERMINAL.has(run.state) || run.state === 'interrupted' ? terminal?.at ?? null : null;
-  const outcome: Outcome = running ? 'running' : staleLock ? 'stale-lock' : run.state === 'passed' ? 'accepted'
+  // A run whose record fails verification is never counted as accepted (the factory's inspect would refuse it).
+  const outcome: Outcome = running ? 'running' : staleLock ? 'stale-lock' : run.state === 'passed' ? (issues.length ? 'unverified' : 'accepted')
     : run.state === 'failed' ? 'rejected' : run.state === 'interrupted' ? 'interrupted' : 'unknown';
 
   let failure: string | null = null;
@@ -242,6 +243,7 @@ export function readNextRun(dir: string, options: NextStoreOptions): RunSummary 
     failure = [failedChecks.length ? `Failed checks: ${failedChecks.join(', ')}` : null, checkReason, firstCase,
       reasonEvent?.details?.reason as string | undefined].filter(Boolean).join(' — ') || null;
   }
+  if (outcome === 'unverified') failure = `Recorded as passed, but integrity verification failed: ${issues[0]}`;
   // While a new attempt evaluates, run.candidateDigest already names the new candidate but the
   // evidence pointer still refers to the previous attempt; the factory's inspect has the same window.
   if (running) {
