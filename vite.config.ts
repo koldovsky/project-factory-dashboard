@@ -8,9 +8,11 @@ export default defineConfig({
   plugins: [react(), {
     name: 'factory-snapshot-api',
     configureServer(server) {
-      const getSnapshot = snapshotProvider(resolveConfigPath());
+      // Resolved on the first request: Vitest also starts this server, and needs no factory config.
+      let getSnapshot: ReturnType<typeof snapshotProvider> | null = null;
       server.middlewares.use('/api/snapshot', async (_req, res) => {
         try {
+          getSnapshot ??= snapshotProvider(resolveConfigPath());
           res.setHeader('content-type', 'application/json');
           res.end(JSON.stringify(await getSnapshot()));
         } catch (error) {
