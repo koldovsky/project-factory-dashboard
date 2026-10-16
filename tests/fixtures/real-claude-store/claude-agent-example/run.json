@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "real-claude-1",
+  "policyDigest": "251191eb0fc23931f683cc91f906e0ac91530c16d2a16f23fafd455a6f745aa1",
+  "candidateDir": "<sanitized>/candidate",
+  "agent": "claude",
+  "executionSpec": {
+    "agent": "claude",
+    "model": "claude-sonnet-5-5",
+    "executable": null,
+    "maxBudgetUsd": 0.5,
+    "baseURL": null,
+    "serveDir": null,
+    "evaluatorDigest": "ce7ce2a20b5ee8bd1817f7042598eaf9226d2579c6cf382eddfc08570d7f13dd"
+  },
+  "executionDigest": "bee8d2460b374084eb2329900f39cf87e14082c4c4d3ae11fceb78fffcd1c3cd",
+  "state": "passed",
+  "attempt": 1,
+  "history": [
+    {
+      "sequence": 1,
+      "at": "2026-10-16T11:47:36.489Z",
+      "state": "created",
+      "details": {
+        "taskId": "slug-contract",
+        "profile": "software-change",
+        "executionDigest": "bee8d2460b374084eb2329900f39cf87e14082c4c4d3ae11fceb78fffcd1c3cd"
+      },
+      "previous": null,
+      "digest": "e1dac9396f081017c1850c6f36a1fe907ace6700f366f9fe5a55e9b5257f5b1e"
+    },
+    {
+      "sequence": 2,
+      "at": "2026-10-16T11:47:36.492Z",
+      "state": "building",
+      "details": {
+        "attempt": 1,
+        "agent": "claude"
+      },
+      "previous": "e1dac9396f081017c1850c6f36a1fe907ace6700f366f9fe5a55e9b5257f5b1e",
+      "digest": "2819df315f9f1be753906a25d872b263ad965feeaac7d1ede2bc0e4123eecf39"
+    },
+    {
+      "sequence": 3,
+      "at": "2026-10-16T11:47:59.235Z",
+      "state": "evaluating",
+      "details": {
+        "attempt": 1,
+        "candidateDigest": "196d582a5cf07a17974296f4cd981a50c91801ff9c868938d97a9826180a391d"
+      },
+      "previous": "2819df315f9f1be753906a25d872b263ad965feeaac7d1ede2bc0e4123eecf39",
+      "digest": "b9c30c55c3da2fc4f4ccf4054f41c8c28109ea9e72fb9a41dcb5cffbd221baeb"
+    },
+    {
+      "sequence": 4,
+      "at": "2026-10-16T11:47:59.303Z",
+      "state": "passed",
+      "details": {
+        "attempt": 1
+      },
+      "previous": "b9c30c55c3da2fc4f4ccf4054f41c8c28109ea9e72fb9a41dcb5cffbd221baeb",
+      "digest": "8e85e77e44de99c4eb6ea6724975227e57623c9f4a6a2f85f364377a1246e07f"
+    }
+  ],
+  "releaseAuthorized": false,
+  "candidateDigest": "196d582a5cf07a17974296f4cd981a50c91801ff9c868938d97a9826180a391d",
+  "evidencePath": "attempt-1/evidence.json",
+  "evidenceDigest": "a36dd5c526faa960398cec8049ecb0d4a695d3f53bba021403d2e870c75a7fa9",
+  "attemptManifest": {
+    "files": {
+      "behavior/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "behavior/stdout.log": "6c1d83a5c47e4d9f63fb244e67c01ff1384b3e5b339caf8d358d3f33abc67ef0",
+      "builder.json": "38b2f4ac9231276a4273bfa6bd1f351be6cd945b94806596134fb7ff99eb492c",
+      "evidence.json": "a36dd5c526faa960398cec8049ecb0d4a695d3f53bba021403d2e870c75a7fa9"
+    },
+    "digest": "421de8b7312f4954eccbfe0c5876b8da1baf6978dadd74c39c25a278480a0845"
+  }
+}

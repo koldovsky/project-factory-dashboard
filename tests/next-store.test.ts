@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { analyzeBuilder } from '../src/core/builder.ts';
 import { readNextRun, readNextStore } from '../src/core/next-store.ts';
 import { readTask, traceForTask, dependsOnMap } from '../src/core/next-control.ts';
 import { PriceTable } from '../src/core/pricing.ts';
@@ -45,6 +46,51 @@ describe('real project-factory-next run store (factory-handbook-lab)', () => {
     // Both requirements are proven by "behavior"; its newest run is the rejected one.
     expect(trace.requirements.every(r => ['pass', 'fail'].includes(r.status))).toBe(true);
     expect(trace.requirements[0].links.some(l => l.kind === 'case')).toBe(true);
+  });
+});
+
+// Captured from a real `factory run --agent claude --model claude-sonnet-5-5 --max-budget-usd 0.5` (claude CLI 2.1.296).
+// Only run.json candidateDir is sanitized: it sits outside every digest, while attempt-1/ is covered by attemptManifest.
+describe('real claude agent run store (claude --print --output-format json)', () => {
+  const store = path.join(import.meta.dirname, 'fixtures', 'real-claude-store');
+  const builderFile = path.join(store, 'claude-agent-example', 'attempt-1', 'builder.json');
+  const record = JSON.parse(fs.readFileSync(builderFile, 'utf8'));
+  const result = JSON.parse(record.stdout);
+  const task = readTask(path.join(import.meta.dirname, 'fixtures', 'real-control'));
+  const { runs } = readNextStore(store, { ...opts, dependsOn: { [task.id]: dependsOnMap(task) } });
+  const run = runs[0];
+
+  it('parses the captured CLI result as claude-json with the reported cost and dominant model', () => {
+    const a = analyzeBuilder(record, prices, 'claude-sonnet-5-5');
+    expect(a.format).toBe('claude-json');
+    expect(a.cost.provenance).toBe('reported');
+    expect(a.cost.usd).toBe(result.total_cost_usd);
+    expect(a.cost.tokens).toEqual({ input: result.usage.input_tokens, output: result.usage.output_tokens,
+      cacheWrite: result.usage.cache_creation_input_tokens, cacheRead: result.usage.cache_read_input_tokens });
+    expect(a.model).toBe('claude-sonnet-5-5');
+    expect(a.turns).toBe(result.num_turns);
+    expect(a.sessionId).toBe(result.session_id);
+    expect(a.resultText).toBe(result.result);
+    // The json output format carries no tool events: tool calls are unknown, not zero.
+    expect(a.toolCalls).toBeNull();
+    expect(a.steps).toEqual([]);
+    expect(a.warnings).toEqual([]);
+  });
+
+  it('verifies the real agent run and attributes its spend to the maker', () => {
+    expect(runs).toHaveLength(1);
+    expect(run.integrity).toEqual({ ok: true, issues: [] });
+    expect(run).toMatchObject({ outcome: 'accepted', agent: 'claude', model: 'claude-sonnet-5-5', attempts: 1 });
+    expect(run.cost).toMatchObject({ usd: result.total_cost_usd, provenance: 'reported' });
+    expect(run.agents).toHaveLength(1);
+    expect(run.agents[0]).toMatchObject({ role: 'maker', model: 'claude-sonnet-5-5', toolCalls: null, state: 'completed', durationMs: record.durationMs });
+  });
+
+  it('orders the timeline: build, agent result, evaluation, checks, verdict', () => {
+    expect(run.events.map(e => `${e.kind}:${e.title}`)).toEqual([
+      'transition:created', 'transition:building', `builder:claude completed · ${result.num_turns} turns`,
+      'transition:evaluating', 'check:behavior: passed (4/4 cases)', 'transition:passed',
+    ]);
   });
 });
 
