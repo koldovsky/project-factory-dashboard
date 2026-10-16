@@ -1,0 +1,1 @@
+{"status":"passed","cases":[{"id":"trim-case","status":"passed"},{"id":"spaces","status":"passed"},{"id":"punctuation","status":"passed"},{"id":"invalid-input","status":"passed"}]}
