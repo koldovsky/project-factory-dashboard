@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "runId": "accepted-example",
+  "attempt": 1,
+  "taskId": "slug-contract",
+  "policyDigest": "251191eb0fc23931f683cc91f906e0ac91530c16d2a16f23fafd455a6f745aa1",
+  "candidateDigest": "d6c5673fd43ea1c3b01df8ecca770645583fd06048b3ddc0dc6d855f31147c44",
+  "evaluatorDigest": "e7312f104b11454743d56572ee106e6c331f1f4882c0d61b3ee69e25e34e9bcf",
+  "executionDigest": "2be7ef446db3ce6f39c2f56fe4742655640d84fbcf9144f4057c040a89b3b0b3",
+  "sourceInputDigest": "d6c5673fd43ea1c3b01df8ecca770645583fd06048b3ddc0dc6d855f31147c44",
+  "preparation": [],
+  "targetBinding": {
+    "kind": "candidate-files"
+  },
+  "node": "v24.18.0",
+  "platform": "win32",
+  "completedAt": "2026-09-21T07:37:24.096Z",
+  "status": "passed",
+  "releaseAuthorized": false,
+  "checks": [
+    {
+      "id": "behavior",
+      "status": "passed",
+      "cases": [
+        {
+          "id": "trim-case",
+          "status": "passed"
+        },
+        {
+          "id": "spaces",
+          "status": "passed"
+        },
+        {
+          "id": "punctuation",
+          "status": "passed"
+        },
+        {
+          "id": "invalid-input",
+          "status": "passed"
+        }
+      ],
+      "durationMs": 74,
+      "exitCode": 0,
+      "artifacts": {
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "6c1d83a5c47e4d9f63fb244e67c01ff1384b3e5b339caf8d358d3f33abc67ef0"
+      }
+    }
+  ]
+}

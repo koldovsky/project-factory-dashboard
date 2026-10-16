@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "name": "project-factory-next runs",
+      "kind": "next-store",
+      "path": "../product-runs",
+      "control": ["../product-control"],
+      "experiments": []
+    },
+    {
+      "name": "v2 project",
+      "kind": "v2-project",
+      "path": "../my-v2-project",
+      "transcripts": "auto"
+    }
+  ],
+  "pricing": {},
+  "cacheFile": ".cache/transcripts.json"
+}

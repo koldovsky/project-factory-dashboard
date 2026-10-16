@@ -1,0 +1,47 @@
+/* Copied unchanged from the Greenfield theme (2026-altexsoft-dark-factories-session1/theme/styles/_tokens-typography.css). */
+/* TYPOGRAPHY — Greenfield Agentic Deck System */
+
+:root {
+  /* ---- Families ---- */
+  --font-display: "Space Grotesk", "Geist", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", ui-monospace, "JetBrains Mono", monospace;
+
+  /* ---- Weights ---- */
+  --fw-light: 300;     /* @kind font */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium: 500;    /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold: 700;      /* @kind font */
+
+  /* ---- Fluid type scale (deck-first, 1280px design width) ----
+     Display steps are big on purpose: slides are read across a room. */
+  --t-display-2xl: clamp(56px, 7vw, 104px);  /* @kind font */ /* hero / title slide */
+  --t-display-xl: clamp(44px, 5.4vw, 76px);  /* @kind font */ /* slide H1 / big statement */
+  --t-display-lg: clamp(34px, 4vw, 54px);    /* @kind font */ /* section header */
+  --t-heading: clamp(26px, 2.6vw, 36px);     /* @kind font */ /* slide subhead */
+  --t-title: 24px;                           /* card title  @kind font */
+  --t-body-lg: 20px;                         /* lead body  @kind font */
+  --t-body: 17px;                            /* body  @kind font */
+  --t-small: 15px;                           /* caption  @kind font */
+  --t-mono: 15px;                            /* code / labels  @kind font */
+  --t-micro: 12px;                           /* eyebrow / kicker  @kind font */
+
+  /* ---- Line heights ---- */
+  --lh-tight: 1.02;    /* @kind font */
+  --lh-snug: 1.14;     /* @kind font */
+  --lh-normal: 1.5;    /* @kind font */
+  --lh-relaxed: 1.65;  /* @kind font */
+
+  /* ---- Tracking ---- */
+  --tracking-tight: -0.03em;   /* display */
+  --tracking-snug: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-eyebrow: 0.22em;  /* uppercase kickers / mono labels */
+
+  /* ---- Semantic aliases ---- */
+  --text-display-size: var(--t-display-xl);
+  --text-body-size: var(--t-body);
+  --eyebrow-size: var(--t-micro);
+}

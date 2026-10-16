@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "accepted-example",
+  "policyDigest": "251191eb0fc23931f683cc91f906e0ac91530c16d2a16f23fafd455a6f745aa1",
+  "candidateDir": "D:\\projects\\dev-ai\\factory-handbook-lab\\candidate",
+  "agent": "manual",
+  "executionSpec": {
+    "agent": "manual",
+    "model": null,
+    "executable": null,
+    "maxBudgetUsd": null,
+    "baseURL": null,
+    "serveDir": null,
+    "evaluatorDigest": "e7312f104b11454743d56572ee106e6c331f1f4882c0d61b3ee69e25e34e9bcf"
+  },
+  "executionDigest": "2be7ef446db3ce6f39c2f56fe4742655640d84fbcf9144f4057c040a89b3b0b3",
+  "state": "passed",
+  "attempt": 1,
+  "history": [
+    {
+      "sequence": 1,
+      "at": "2026-09-21T07:37:24.007Z",
+      "state": "created",
+      "details": {
+        "taskId": "slug-contract",
+        "profile": "software-change",
+        "executionDigest": "2be7ef446db3ce6f39c2f56fe4742655640d84fbcf9144f4057c040a89b3b0b3"
+      },
+      "previous": null,
+      "digest": "00b73e3d1fb6b8b4ad82688721c4b7af71f0d10a9925a5d91a04932dc9aea5e9"
+    },
+    {
+      "sequence": 2,
+      "at": "2026-09-21T07:37:24.008Z",
+      "state": "building",
+      "details": {
+        "attempt": 1,
+        "agent": "manual"
+      },
+      "previous": "00b73e3d1fb6b8b4ad82688721c4b7af71f0d10a9925a5d91a04932dc9aea5e9",
+      "digest": "8ff1595deca468b0d7b8e0500742c56002a134fc4192746e4a234ee2c4960d53"
+    },
+    {
+      "sequence": 3,
+      "at": "2026-09-21T07:37:24.015Z",
+      "state": "evaluating",
+      "details": {
+        "attempt": 1,
+        "candidateDigest": "d6c5673fd43ea1c3b01df8ecca770645583fd06048b3ddc0dc6d855f31147c44"
+      },
+      "previous": "8ff1595deca468b0d7b8e0500742c56002a134fc4192746e4a234ee2c4960d53",
+      "digest": "15c570e890cd77a341273108c88a321717d216b92cdeb926fc42b893f298ddcb"
+    },
+    {
+      "sequence": 4,
+      "at": "2026-09-21T07:37:24.099Z",
+      "state": "passed",
+      "details": {
+        "attempt": 1
+      },
+      "previous": "15c570e890cd77a341273108c88a321717d216b92cdeb926fc42b893f298ddcb",
+      "digest": "00749787ded4e16e5dd39cf0e0339c30234f3c23c5eb6cc5d02971f67dcab321"
+    }
+  ],
+  "releaseAuthorized": false,
+  "candidateDigest": "d6c5673fd43ea1c3b01df8ecca770645583fd06048b3ddc0dc6d855f31147c44",
+  "evidencePath": "attempt-1/evidence.json",
+  "evidenceDigest": "2794aad4f9f141a55523672bb27cc07a053ae89f760353578a01a6f1083575d0",
+  "attemptManifest": {
+    "files": {
+      "behavior/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "behavior/stdout.log": "6c1d83a5c47e4d9f63fb244e67c01ff1384b3e5b339caf8d358d3f33abc67ef0",
+      "evidence.json": "2794aad4f9f141a55523672bb27cc07a053ae89f760353578a01a6f1083575d0"
+    },
+    "digest": "5072da4ee071c8274daa5e5e1f58ecb6aa0b3660f9fd191fc86c03a9cc1b53c3"
+  }
+}

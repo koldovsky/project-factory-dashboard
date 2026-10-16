@@ -1,0 +1,87 @@
+/* Copied unchanged from the Greenfield theme (2026-altexsoft-dark-factories-session1/theme/styles/_tokens-colors.css). */
+/* COLORS — Greenfield Agentic Deck System
+   Dark-first. "Greenfield" → signal green is the primary. A cool ink canvas,
+   electric cyan for flow/agents, violet for orchestration/AI, amber for attention. */
+
+:root {
+  /* ---- Ink canvas (backgrounds, dark-first) ---- */
+  --ink-950: #07080B;   /* base stage / slide canvas */
+  --ink-900: #0B0D12;
+  --ink-850: #0F1218;
+  --ink-800: #14171F;   /* raised surface / card */
+  --ink-700: #1B1F29;   /* hover surface */
+  --ink-600: #262B38;   /* strong border / inset */
+  --ink-500: #353C4C;
+
+  /* ---- Foreground (text on ink) ---- */
+  --fg-0: #EDF1F5;      /* headlines, max contrast */
+  --fg-1: #C4CCD6;      /* body */
+  --fg-2: #8C95A4;      /* muted / captions */
+  --fg-3: #5A6373;      /* faint / disabled / placeholder */
+
+  /* ---- Signal green (PRIMARY — greenfield / go / live) ---- */
+  --green-300: #9CFFC2;
+  --green-400: #5BF59A;
+  --green-500: #25E07C;  /* core accent */
+  --green-600: #14B863;
+  --green-700: #0C8C4B;
+
+  /* ---- Electric cyan (flow, data, agents) ---- */
+  --cyan-300: #9CEEFF;
+  --cyan-400: #54DCF6;
+  --cyan-500: #1FC0EC;
+  --cyan-600: #0E97BE;
+
+  /* ---- Violet (orchestration / model / AI) ---- */
+  --violet-300: #D2BBFF;
+  --violet-400: #B393FF;
+  --violet-500: #8B5CF6;
+  --violet-600: #6D3FE0;
+
+  /* ---- Amber (attention / highlight / warn) ---- */
+  --amber-300: #FFE0A3;
+  --amber-400: #FFC24B;
+  --amber-500: #F5A623;
+
+  /* ---- Rose (danger / removed / fail) ---- */
+  --rose-400: #FF7A8D;
+  --rose-500: #F4475F;
+
+  /* ---- Semantic aliases ---- */
+  --bg-stage: var(--ink-950);
+  --bg-base: var(--ink-900);
+  --surface-card: var(--ink-800);
+  --surface-raised: var(--ink-850);
+  --surface-hover: var(--ink-700);
+  --surface-inset: var(--ink-950);
+
+  --text-display: var(--fg-0);
+  --text-body: var(--fg-1);
+  --text-muted: var(--fg-2);
+  --text-faint: var(--fg-3);
+  --text-on-accent: #042312;   /* dark ink for use on green/cyan fills */
+
+  --accent: var(--green-500);
+  --accent-strong: var(--green-400);
+  --accent-deep: var(--green-700);
+  --flow: var(--cyan-400);
+  --model: var(--violet-400);
+  --attention: var(--amber-400);
+
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-default: rgba(255, 255, 255, 0.11);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(37, 224, 124, 0.55);
+
+  --success: var(--green-500);
+  --info: var(--cyan-500);
+  --warn: var(--amber-400);
+  --danger: var(--rose-500);
+
+  /* status tints (low-alpha fills for pills/cards) */
+  --tint-green: rgba(37, 224, 124, 0.12);
+  --tint-cyan: rgba(31, 192, 236, 0.12);
+  --tint-violet: rgba(139, 92, 246, 0.14);
+  --tint-amber: rgba(245, 166, 35, 0.14);
+  --tint-rose: rgba(244, 71, 95, 0.14);
+}

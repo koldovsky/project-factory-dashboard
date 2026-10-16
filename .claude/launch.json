@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "dashboard-demo", "runtimeExecutable": "node", "runtimeArgs": ["src/server/main.ts", "--config", ".demo/factory-dash.config.json", "--port", "4317"], "port": 4317 },
+    { "name": "dashboard-real", "runtimeExecutable": "node", "runtimeArgs": ["src/server/main.ts", "--config", "factory-dash.config.local.json", "--port", "4319"], "port": 4319 }
+  ]
+}

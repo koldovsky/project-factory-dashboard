@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "runId": "rejected-example",
+  "attempt": 1,
+  "taskId": "slug-contract",
+  "policyDigest": "251191eb0fc23931f683cc91f906e0ac91530c16d2a16f23fafd455a6f745aa1",
+  "candidateDigest": "7f50d79cf8e8c30c3b534c0dcb5abc964cd0bfc0fc6e68755791e126c02cff3f",
+  "evaluatorDigest": "e7312f104b11454743d56572ee106e6c331f1f4882c0d61b3ee69e25e34e9bcf",
+  "executionDigest": "2be7ef446db3ce6f39c2f56fe4742655640d84fbcf9144f4057c040a89b3b0b3",
+  "sourceInputDigest": "7f50d79cf8e8c30c3b534c0dcb5abc964cd0bfc0fc6e68755791e126c02cff3f",
+  "preparation": [],
+  "targetBinding": {
+    "kind": "candidate-files"
+  },
+  "node": "v24.18.0",
+  "platform": "win32",
+  "completedAt": "2026-09-21T07:37:24.917Z",
+  "status": "failed",
+  "releaseAuthorized": false,
+  "checks": [
+    {
+      "id": "behavior",
+      "status": "failed",
+      "cases": [
+        {
+          "id": "trim-case",
+          "status": "passed"
+        },
+        {
+          "id": "spaces",
+          "status": "failed",
+          "details": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'many-  spaces'\n- 'many-spaces'\n        ^\n"
+        },
+        {
+          "id": "punctuation",
+          "status": "failed",
+          "details": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'hello,-world!'\n- 'hello-world'\n        ^\n"
+        },
+        {
+          "id": "invalid-input",
+          "status": "passed"
+        }
+      ],
+      "durationMs": 57,
+      "exitCode": 1,
+      "artifacts": {
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.log": "f5a6cfa47f49c333e6a59310724821c302103f92273dbbe265c429a8f7e6df47"
+      }
+    }
+  ]
+}

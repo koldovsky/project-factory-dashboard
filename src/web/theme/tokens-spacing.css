@@ -1,0 +1,66 @@
+/* Copied unchanged from the Greenfield theme (2026-altexsoft-dark-factories-session1/theme/styles/_tokens-spacing.css). */
+/* SPACING, RADII, SHADOWS, BORDERS, MOTION — Greenfield Agentic Deck System */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* slide gutter — outer padding of a 1280×720 slide */
+  --slide-pad-x: 88px;
+  --slide-pad-y: 72px;
+
+  /* ---- Radii ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Border widths ---- */
+  --border-w: 1px;
+  --border-w-thick: 2px;
+
+  /* ---- Elevation shadows (on dark, mostly depth + ambient) ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px -16px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 40px 120px -24px rgba(0, 0, 0, 0.75);
+
+  /* ---- Glow shadows (accent emission — the signature effect) ---- */
+  --glow-green: 0 0 0 1px rgba(37, 224, 124, 0.4), 0 0 24px -2px rgba(37, 224, 124, 0.45), 0 0 60px -10px rgba(37, 224, 124, 0.3);
+  --glow-green-soft: 0 0 32px -6px rgba(37, 224, 124, 0.4);
+  --glow-cyan: 0 0 0 1px rgba(31, 192, 236, 0.4), 0 0 24px -2px rgba(31, 192, 236, 0.45), 0 0 60px -10px rgba(31, 192, 236, 0.3);
+  --glow-violet: 0 0 0 1px rgba(139, 92, 246, 0.4), 0 0 24px -2px rgba(139, 92, 246, 0.45), 0 0 60px -10px rgba(139, 92, 246, 0.3);
+  --glow-amber: 0 0 28px -4px rgba(245, 166, 35, 0.5);
+
+  /* inset top-light line for raised surfaces */
+  --inset-hairline: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* ---- Motion ---- */
+  --dur-fast: 120ms;    /* @kind other */
+  --dur-base: 220ms;    /* @kind other */
+  --dur-slow: 420ms;    /* @kind other */
+  --dur-slower: 800ms;  /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);   /* @kind other */ /* default — confident settle */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);  /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */ /* slight overshoot */
+  --ease-linear: linear;  /* @kind other */
+
+  /* ---- Z layers ---- */
+  --z-base: 0;        /* @kind other */
+  --z-raised: 10;     /* @kind other */
+  --z-overlay: 100;   /* @kind other */
+  --z-modal: 1000;    /* @kind other */
+  --z-toast: 2000;    /* @kind other */
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "files": {
+    "evaluators/slug.mjs": "7bd3610bfb15828889fc8b8e4207d0b55bccb26e1f07463a07980add34acdffe",
+    "profile.json": "61bb4c7a7d5c41e4c3c729df601f6ffef372c89c5d10b0d71cde77e9c34e488f",
+    "task.json": "3d16012649e20f29ce6cda8c560bc6b5f80f8e19eb75b3457579c35c26899c94"
+  },
+  "digest": "251191eb0fc23931f683cc91f906e0ac91530c16d2a16f23fafd455a6f745aa1"
+}

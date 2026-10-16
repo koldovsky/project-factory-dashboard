@@ -1,0 +1,11 @@
+/* Copied unchanged from the Greenfield theme (2026-altexsoft-dark-factories-session1/theme/styles/_tokens-fonts.css). */
+/* Webfonts — loaded from Google Fonts CDN.
+   Geist / Geist Mono chosen deliberately: this deck system is for an
+   agentic-engineering course built on Next.js + Vercel, whose own type is Geist.
+   Space Grotesk supplies the display/headline voice.
+   NOTE: these load over the network. If you need self-hosted binaries,
+   ask and we'll vendor the .woff2 files + local @font-face rules. */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap");

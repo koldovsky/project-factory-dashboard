@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.demo/
+.cache/
+factory-dash.config.json
+factory-dash.config.local.json
+*.log

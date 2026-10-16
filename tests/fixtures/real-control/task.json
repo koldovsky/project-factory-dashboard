@@ -1,0 +1,11 @@
+{
+  "schemaVersion":1,"id":"slug-contract","profile":"software-change",
+  "title":"Normalize user-visible URL slugs",
+  "intent":"Implement slug(text) in slug.mjs. Trim surrounding whitespace, collapse spaces to one hyphen, lowercase ASCII, remove punctuation and reject non-string input.",
+  "requirements":[
+    {"id":"R1","description":"Whitespace and case normalize deterministically","checkIds":["behavior"]},
+    {"id":"R2","description":"Punctuation disappears; unsupported input is rejected","checkIds":["behavior"]}
+  ],
+  "checks":[{"id":"behavior","kind":"command","dependsOn":[],"expectedCases":["trim-case","spaces","punctuation","invalid-input"],"timeoutMs":10000,"argv":["node","{control}/evaluators/slug.mjs"]}],
+  "budget":{"maxAttempts":2,"agentTimeoutMs":300000}
+}

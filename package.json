@@ -1,0 +1,36 @@
+{
+  "name": "project-factory-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Monitoring, cost and agent-trace dashboard for koldovsky/project-factory-next (and the v2 project-factory methodology)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node src/server/main.ts",
+    "snapshot": "node src/server/cli.ts snapshot",
+    "demo:data": "node scripts/make-demo.ts",
+    "demo:live": "node scripts/simulate-run.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "shots": "node scripts/shots.ts"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "playwright": "1.64.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.4"
+  },
+  "packageManager": "pnpm@11.17.0"
+}
